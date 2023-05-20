@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/musicplayerrr.css">
+</head>
+<body>
+    <section class="container">
+        <article>
+            <div>JIOSAVAAN</div>
+<div><input onchange="data()" class="input" type="text"  placeholder="search Artists,Songs,Albums"></div>
+        </article>
+    </section>
+    <section class="all">
+        <button value="all"  class="eyybidda"  onclick="mainfunction(event)" > All</button>
+        <button value="Trending songs"  class="eyybidda" onclick="mainfunction(event)" >Trending songs</button>
+        <button value="new songs"  class="eyybidda"  onclick="mainfunction(event)" >New songs</button>
+        <button value="old songs"  class="eyybidda"  onclick="mainfunction(event)" >Old songs</button>
+        <button value="Album"  class="eyybidda"  onclick="mainfunction(event)" >Album</button>
+        <button value="Radio"  class="eyybidda"  onclick="mainfunction(event)" >Radio</button>
+        <button value="podcast"  class="eyybidda"  onclick="mainfunction(event)" >Podcast</button>
+        <button value="old songs"  class="eyybidda"  onclick="mainfunction(event)" >Moods&genres<ion-icon name="chevron-down-outline"></ion-icon></button>
+        <button value="my music"  class="eyybidda"  onclick="mainfunction(event)" >My Music</button>
+    </section>
+   
+    <section class="divcenter">
+            <div class="list"></div>
+        <div class="songimg">
+            <img class="currentsongimg" src="https://media.istockphoto.com/id/1175435360/vector/music-note-icon-vector-illustration.jpg?s=612x612&w=0&k=20&c=R7s6RR849L57bv_c7jMIFRW4H87-FjLB8sqZ08mN0OU=" alt=""> 
+        
+</div>
+</section>
+
+<div class="trend">
+    <audio class="audio" id="audiotag" controls autoplay></audio>
+</div>
+</body>
+<script src="../js/musicplayer.js"></script>
+</html>
