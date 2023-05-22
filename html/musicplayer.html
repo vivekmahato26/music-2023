@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../css/musicplayerrr.css">
+    <!-- <link rel="stylesheet" href="../css/musicplayerrr.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <style>
     *
@@ -21,8 +23,8 @@ body{
     /* justify-content: center; */
     align-items: center;
     flex-direction: column;
-    /* background-color: rgb(238, 192, 135); */
-    background-image: url(https://png.pngtree.com/background/20211217/original/pngtree-note-music-logo-watercolor-background-picture-image_1589075.jpg);
+    background-color:#e8f0ff;
+    /* background-image: url(https://png.pngtree.com/background/20211217/original/pngtree-note-music-logo-watercolor-background-picture-image_1589075.jpg); */
     /* background-image: url(https://thumbs.dreamstime.com/b/dirty-music-background-21777451.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
@@ -42,7 +44,6 @@ button
 {
     width: 8.5rem;
     height: 3rem;
-    margin-bottom: 2rem;
     font-size: 0.9rem;
     border: 2px solid;
     background-color: rgb(100, 105, 105);
@@ -60,7 +61,7 @@ audio{
 .label{
     /* font-size: 1.8rem;
     color: white; */
-    width: 13rem;
+    /* width: 13rem; */
     height: 8rem;
     display: flex;
     align-items: center;
@@ -81,7 +82,7 @@ audio{
     justify-content: center;
     align-items: center;
     gap: 2rem;
-    width: 100vw;
+    /* width: 100vw; */
     flex-wrap: wrap;
 
 }
@@ -90,14 +91,42 @@ img{
     width: 15rem;
     height: 15rem;
 }
-.songimg
+#songimg
 {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 2rem;
 }
-
+.player {
+    position: fixed;
+    width: 100vw;
+    height: 5rem;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    background-color: #e5e5e5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#audioControls {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    width: 50%;
+    justify-content: center;
+}
+#audioControls > i {
+    margin: 0 1rem;
+}
+.progress {
+    width: 0%;
+    height: 0.3rem;
+    background-color: black;
+    position: absolute;
+    top: 0;
+}
 </style>
 <body>
     <section class="container">
@@ -142,14 +171,15 @@ img{
       <button value="old songs" class="eyybidda" onclick="mainfunction(event)">
         Moods&genres<ion-icon name="chevron-down-outline"></ion-icon>
       </button>
-      <button value="my music" class="eyybidda" onclick="mainfunction(event)">
+      <button value="my music" class="eyybidda" id="myMusic">
         My Music
       </button>
     </section>
+   
 
     <section class="divcenter">
       <div class="list"></div>
-      <div class="songimg">
+      <div id="songimg">
         <img
           class="currentsongimg"
           src="https://media.istockphoto.com/id/1175435360/vector/music-note-icon-vector-illustration.jpg?s=612x612&w=0&k=20&c=R7s6RR849L57bv_c7jMIFRW4H87-FjLB8sqZ08mN0OU="
@@ -158,8 +188,22 @@ img{
       </div>
     </section>
 
-    <div class="trend">
-      <audio class="audio" id="audiotag" controls autoplay></audio>
+    <div class="trend"  style="visibility: hidden;">
+      <audio id="audio" class="audio" id="audiotag" controls autoplay></audio>
+    </div>
+    <div class="player" id="player">
+        <span class="progress" id="progress"></span>
+        <div id="currSongDetails">
+          <img id="currentImg" src="" alt="" style="width: 50px;height: 50px;">
+        </div>
+        <div id="audioControls">
+            <i class="fa fa-step-backward" id="prev" aria-hidden="true"></i>
+            <i class="fa fa-play" id="playpause"></i>
+            <i class="fa fa-step-forward" id="next" aria-hidden="true"></i>
+        </div>
+        <div id="songFuncs">
+          <button id="addToPlaylist">Add to playlist</button>
+        </div>
     </div>
   </body>
   <script src="../js/musicplayer.js"></script>
