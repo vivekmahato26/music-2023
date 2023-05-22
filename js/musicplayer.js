@@ -26,8 +26,9 @@ function data() {
 }
 
 const renderHtml = (arg) => {
+  let tempHtml = "";
   arg.map((finalresult) => {
-    songlist.innerHTML += `
+     tempHtml += `
     <img src="${finalresult.image[2].link}" name="${finalresult.name}" class="songimageinjs" alt="${finalresult.downloadUrl[4].link}" data-id="${finalresult.id}" /> `;
     var a = document.querySelectorAll(".songimageinjs");
     a.forEach((c) => {
@@ -41,6 +42,7 @@ const renderHtml = (arg) => {
       });
     });
   });
+  songlist.innerHTML = tempHtml;
   const bannerImg = document.getElementById("songimg");
   bannerImg.style.display = "none";
 }
@@ -130,6 +132,7 @@ const addToPlaylist = document.getElementById("addToPlaylist");
 addToPlaylist.addEventListener("click", () => {
   const playlist = localStorage.getItem("playlist");
   let newPlaylist;
+  if(!audiotag.dataset.id) return;
   if(playlist) {
      newPlaylist = JSON.parse(playlist)
      if(!newPlaylist.find((e) => e === audiotag.dataset.id))
